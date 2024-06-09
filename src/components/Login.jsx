@@ -11,43 +11,47 @@ const Login = () => {
     const {user, setUser} = useContext(Context);
     const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
 
-    if (!isMounted) return null;
     const router = useRouter();
-    const login = (e) => {
+    const login = async (e) => {
       e.preventDefault();
-      fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: user.name,
-          pwd: user.pwd,
-        }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            // Handle non-2xx HTTP responses
-            throw new Error('Network response was not ok');
-          }
-          return response.json(); // Parse JSON if response is ok
-        })
-        .then((res) => {
-          if (res.message) {
-            setUser(res.message);
-            router.push('/table/store');
-          } else {
-            toast.error('❌ Invalid username or password');
-          }
-        })
-        .catch((error) => {
-          console.error('Error during login:', error);
-          toast.error('❌ Login failed');
+      
+      console.log(user.name);
+      console.log(user.password);
+      
+      try {
+        const response = await fetch('api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: user.name,
+            password: user.password,
+          }),
         });
+        
+        if (!response.ok) {
+          // Handle non-2xx HTTP responses
+          toast("❌ Invalid username or password");
+          return;
+        }
+        
+        const res = await response.json().catch(() => {
+          // Handle invalid JSON response
+          throw new Error('Invalid JSON response');
+        });
+        
+        if (res.message) {
+          setUser(res.message);
+          router.push("/");
+        } else {
+          toast("❌ Invalid username or password");
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        toast("❌ An error occurred during login");
+      }
     };
     
   return (
@@ -74,10 +78,10 @@ const Login = () => {
         />
         <Input
           name="password"
-          type="password"
+          type="text"
           title="password"
           placeholder="password"
-          value={user.pwd}
+          value={user.password}
           user={user}
           setUser={setUser}
           maxLength={100}
@@ -85,7 +89,7 @@ const Login = () => {
         <Button onClick={login} text="SUBMIT" color="white" />
       </form>
       <span className="w-full text-center">
-        don't have an account?
+        don{"'"}t have an account?
       </span>
       <Link href="/register" className="text-blue-500 w-full text-center text-lg -mt-2">
         REGISTSER

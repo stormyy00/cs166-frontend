@@ -12,30 +12,36 @@ const page = () => {
     const route = useRouter();
 
     const register = (e) => {
-        e.preventDefault();
-        if (!user.name && !user.pwd && !user.favGame && !user.num) {
-            alert("Please fill out all fields");
-            return;
-        }
-        if (!user.num.match(/^\+?\d{10,15}$/)) {
-            alert("Please enter a valid phone number");
-            return;
-        }
-            // check if phone number is valid 
-        fetch('api/register', {
-            method: 'POST',
-            body: JSON.stringify(user),
-        })
-        .then((response)=>{
-            response.json();
-        }).then((data)=>{
-            setUser({...user}); //role: "customer"
-            route.push("/login")
-        })
-        .catch((err) => {
-            alert("Error" + err.message);
-          });
-    };    
+      e.preventDefault();
+      console.log(user.name);
+      console.log(user.password);
+      console.log(user.favgames);
+      console.log(user.num);
+      if (!user.name && !user.password && !user.favgames && !user.num) {
+          alert("Please fill out all fields");
+          return;
+      }
+      if (!user.num.match(/^\+?\d{10,15}$/)) {
+          alert("Please enter a valid phone number");
+          return;
+      }
+  
+      fetch('api/register', {
+          method: 'POST',
+          body: JSON.stringify(user),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      })
+      .then((response) => response.json())
+      .then((res) => {
+          setUser({ ...user, role: "customer" });
+          route.push("/");
+      })
+      .catch((err) => {
+          alert("Error: " + err.message);
+      });
+  };
   return (
     <div className="flex w-full h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
     {/* <div className="w-fit flex flex-col items-center justify-center text-white">
@@ -48,49 +54,36 @@ const page = () => {
         <div className="text-lg text-gray-600">Jon and Lester Game Rentals</div>
       </div>
       <form className="w-full">
-        <Input
-          name="name"
-          type="text"
-          title="name"
-          placeholder="name"
-          value={user.name}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-          required
-        />
-        <Input
-          name="password"
-          type="password"
-          title="password"
-          placeholder="password"
-          value={user.pwd}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-          required
-        />
-          {/* <Input
-          name="role"
-          type="text"
-          title="role"
-          placeholder="role"
-          value={user.role}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-          required
-        /> */}
+      <Input
+            name="name"
+            type="text"
+            title="name"
+            placeholder="name"
+            value={user.name}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Input
+            name="password"
+            type="text"
+            title="password"
+            placeholder="password"
+            value={user.password}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
           <Input
           name="favGame"
           type="text"
           title="Favorite Game"
           placeholder="Favorite Game"
-          value={user.favGame}
+          value={user.favgames}
           user={user}
           setUser={setUser}
           maxLength={100}
-          required
+
         />
           <Input
          name="num"
@@ -101,8 +94,8 @@ const page = () => {
          user={user}
          setUser={setUser}
          maxLength={15}
-         required
-         regex={/^\+?\d{10,15}$/}
+
+        //  regex={/^\+?\d{10,15}$/}
         />
         <Button onClick={register} text="SUBMIT" color="white" />
       </form>

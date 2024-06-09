@@ -1,11 +1,33 @@
 export const INPUTS = {
+  catalog:[],
+  myorder: [],
+  order: ["gameid", "noofGames"],
+  "update-catalog": ["gameid", "gamename", "genre", "price", "comments"],
+  "all-users": [],
+  "update-user": [
+    "updatelogin",
+    "updatepwd",
+    "updateRole",
+    "updateNUm",
+    "updateGamesDUe",
+  ],
+  "update-tracking":[
+    "updateStatus",
+    "updateCourier",
+    "updateLocation",
+    "Comments",
+  ],
+  "all-order": [],
+  };
+
+  export const INPUT = {
     store: [],
     products: ["storeid"],
     myorder: [],
     order: ["storeid", "productName", "numberofunits"],
     "update-product": ["storeid", "productName", "numberofunits", "pricePerUnit"],
     "all-users": [],
-    "update-users": [
+    "update-tracking": [
       "updateUserid",
       "updateName",
       "updateType",
@@ -18,4 +40,4 @@ export const INPUTS = {
     "popular-customers": ["storeid"],
     request: ["storeid", "productName", "numberofunits", "warehouseid"],
     "all-order": [],
-  };
+};

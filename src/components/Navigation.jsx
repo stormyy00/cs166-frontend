@@ -42,7 +42,7 @@ const Navigation = () => {
                 onClick={() => setExpand(false)}
                 className={`w-full flex [&>*]:text-tm-purple/90 font-semibold text-base items-center justify-start py-1 pl-[10%] ${
                     pathName.endsWith(item.link)
-                    ? "bg-black"
+                    ? "bg-gray-300 rounded-lg"
                     : "[&>*]:hover:text-tm-purple/60"
                 }`}
                 >

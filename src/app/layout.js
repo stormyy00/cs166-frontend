@@ -12,11 +12,10 @@ const metadata = {
 
 export default function RootLayout({ children, session }) {
   const [user, setUser] = useState({
-    userid: 3,
     name: "",
     password: "",
     role: "customer",
-    favGame: "VALORANT",
+    favgames: "VALORANT",
     num: "9098009676",
     rentaldue: 0,
   });
