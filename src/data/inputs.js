@@ -12,10 +12,11 @@ export const INPUTS = {
     "updateGamesDUe",
   ],
   "update-tracking":[
-    "updateStatus",
-    "updateCourier",
-    "updateLocation",
-    "Comments",
+    "trackingid",
+    "status",
+    "couriername",
+    "currentlocation",
+    "comments",
   ],
   "all-order": [],
   };
