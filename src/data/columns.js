@@ -181,8 +181,8 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "role",
-      header: "role",
+      accessorKey: "type",
+      header: "type",
       width: "w-3/12",
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,

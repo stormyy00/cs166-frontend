@@ -1,7 +1,7 @@
 export const INPUTS = {
-  catalog:[],
+  catalog:["gamedid"],
   myorder: [],
-  order: ["gameid", "noofGames"],
+  order: ["gameid", "noofgames"],
   "update-catalog": ["gameid", "gamename", "genre", "price", "comments"],
   "all-users": [],
   "update-user": [
@@ -19,6 +19,7 @@ export const INPUTS = {
     "comments",
   ],
   "all-order": [],
+  profile:["favegames", "phonenum"]
   };
 
   export const INPUT = {

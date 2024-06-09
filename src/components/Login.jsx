@@ -18,7 +18,10 @@ const Login = () => {
       
       console.log(user.name);
       console.log(user.password);
-      
+      if (!user.name && !user.password) {
+        toast("❌Please fill out all fields");
+        return;
+    } 
       try {
         const response = await fetch('api/login', {
           method: 'POST',

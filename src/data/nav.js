@@ -3,52 +3,52 @@ export const ITEM = [
         name:"catalog",
         page:"catalog",
         link:"/table/catalog",
-        role:["customer", "manager", "admin"]
+        type: ["customer", "employee", "manager"],
     },
     {
         name: "Order",
         page: "order",
         link: "/forms/order",
         // icon: <BsPeopleFill className={iconStyle} />,
-        type: ["customer", "manager", "admin"],
+        type: ["customer", "employee", "manager"],
       },
       {
         name: "My Order",
         page: "myorder",
         link: "/table/myorder",
         // icon: <BsPeopleFill className={iconStyle} />,
-        type: ["customer", "manager", "admin"],
+        type: ["customer", "employee", "manager"],
       },
       {
         name: "All Users",
         page: "all-users",
         link: "/table/all-users",
         // icon: <BsPeopleFill className={iconStyle} />,
-        type: ["admin"],
+        type: ["manager"],
         },
     {
         name:"Update Catalog",
         page:"update-product",
         link:"/forms/update-catalog",
-        type:["customer", "manager", "admin"]
+        type: [ "manager"],
     },
     {
         name:"Tracking Info",
         page:"track-info",
         link:"/forms/viewTR",
-        role:["customer", "manager", "admin"]
+        type:["customer", "manager", "admin"]
     },
     {
         name:"Update Tracking",
         page:"update-tracking",
         link:"/forms/update-tracking",
-        role:[, "manager", "admin"]
+        type: [ "employee", "manager"],
     },
     {
         name:"Update User",
         page:"update-user",
         link:"/forms/update-user",
-        type:["admin"]
+        type: [ "manager"],
     },
 ]
 
