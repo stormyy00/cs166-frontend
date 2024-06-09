@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect, useContext } from 'react';
 import Context from './Context';
 import Table from './Table';

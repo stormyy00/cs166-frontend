@@ -21,7 +21,7 @@ export const COLUMNS = {
     generateSelect(),
     {
       accessorKey: "gameid",
-      header: "gameID",
+      header: "gameid",
       width: " w-1/6",
       enableColumnFilter: true,
       filterFn: "includesString",
@@ -29,7 +29,7 @@ export const COLUMNS = {
     },
     {
       accessorKey: "gamename",
-      header: "gameName",
+      header: "gamename",
       width: "w-1/12",
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,

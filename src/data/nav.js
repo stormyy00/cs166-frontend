@@ -20,17 +20,17 @@ export const ITEM = [
         type: ["customer", "manager", "admin"],
       },
       {
-      name: "All Users",
-    page: "all-users",
-    link: "/table/all-users",
-    // icon: <BsPeopleFill className={iconStyle} />,
-    type: ["admin"],
-    },
+        name: "All Users",
+        page: "all-users",
+        link: "/table/all-users",
+        // icon: <BsPeopleFill className={iconStyle} />,
+        type: ["admin"],
+        },
     {
         name:"Update Catalog",
         page:"update-product",
         link:"/forms/update-catalog",
-        role:["customer", "manager", "admin"]
+        type:["customer", "manager", "admin"]
     },
     {
         name:"Tracking Info",
@@ -47,14 +47,8 @@ export const ITEM = [
     {
         name:"Update User",
         page:"update-user",
-        link:"/table/update-user",
-        role:["admin"]
-    },
-    {
-        name:"Delete User",
-        page:"delete-user",
-        link:"/table/deleter-user",
-        role:["admin"]
+        link:"/forms/update-user",
+        type:["admin"]
     },
 ]
 
