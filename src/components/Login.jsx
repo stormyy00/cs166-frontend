@@ -44,7 +44,7 @@ const Login = () => {
         
         if (res.message) {
           setUser(res.message);
-          router.push("/");
+          router.push("/forms/order");
         } else {
           toast("❌ Invalid username or password");
         }

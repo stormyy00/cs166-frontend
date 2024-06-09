@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Login from "@/components/Login";
 import { useReactTable, getCoreRowModel, getPaginationRowModel } from '@tanstack/react-table';
 import { data, columns } from '../data/mock';
 import Image from "next/image";
@@ -20,27 +21,28 @@ export default function Home() {
   });
 
   return (
-    <div className="flex items-center justify-center w-full h-full ">
-      <title className="text-tm-blue">MOCK</title>
-      <Navigation />
-        <div className="w-full flex justify-center items-center h-screen py-12 lg:py-0 z-0 px-4">
-          <div className="w-10/12">
-          <Table
-            getHeaderGroups={table.getHeaderGroups}
-            getRowModel={table.getRowModel}
-            getState={table.getState}
-            previousPage={table.previousPage}
-            getCanPreviousPage={table.getCanPreviousPage}
-            nextPage={table.nextPage}
-            getCanNextPage={table.getCanNextPage}
-            getPageCount={table.getPageCount}
-            Dropdown={() => <div>Dropdown Component</div>}
-            empty={empty}
-            loading={loading}
-          />
-        </div>
-      </div>
-    </div>
+    <div className='h-screen'><Login/></div>
+    // <div className="flex items-center justify-center w-full h-full ">
+    //   <title className="text-tm-blue">MOCK</title>
+    //   <Navigation />
+    //     <div className="w-full flex justify-center items-center h-screen py-12 lg:py-0 z-0 px-4">
+    //       <div className="w-10/12">
+    //       <Table
+    //         getHeaderGroups={table.getHeaderGroups}
+    //         getRowModel={table.getRowModel}
+    //         getState={table.getState}
+    //         previousPage={table.previousPage}
+    //         getCanPreviousPage={table.getCanPreviousPage}
+    //         nextPage={table.nextPage}
+    //         getCanNextPage={table.getCanNextPage}
+    //         getPageCount={table.getPageCount}
+    //         Dropdown={() => <div>Dropdown Component</div>}
+    //         empty={empty}
+    //         loading={loading}
+    //       />
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
