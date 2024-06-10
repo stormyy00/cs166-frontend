@@ -43,21 +43,17 @@ const Register = () => {
       });
   };
   return (
-    <div className="flex w-screen h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
-    {/* <div className="w-fit flex flex-col items-center justify-center text-white">
-      <Image src={logo} alt="logo" width={100} height={100} />
-      <div>Elevating Shopping to Prime Satisfaction!</div>
-    </div> */}
-    <div className="rounded-lg p-12 w-1/3 bg-white/60 flex flex-col justify-center items-start h-fit gap-3">
-      <div>
-        <div className="text-4xl font-light">REGISTER</div>
-        <div className="text-lg text-gray-600">Jon and Lester Game Rentals</div>
-      </div>
+    <div className="flex w-screen h-full bg-gradient-to-br from-gray-300 to-blue-300 items-center justify-around">
+      <div className="rounded-lg p-12 w-1/3 bg-white shadow-lg flex flex-col justify-center items-start h-fit gap-4">
+        <div>
+          <div className="flex justify-center text-4xl font-light text-gray-800">Register</div>
+          <div className="text-lg text-gray-600">Jon and Lester Game Rentals</div>
+        </div>
       <form className="w-full">
       <Input
             name="name"
             type="text"
-            title="name"
+            title="Name"
             placeholder="name"
             value={user.name}
             user={user}
@@ -67,7 +63,7 @@ const Register = () => {
           <Input
             name="password"
             type="text"
-            title="password"
+            title="Password"
             placeholder="password"
             value={user.password}
             user={user}
@@ -97,13 +93,13 @@ const Register = () => {
 
         //  regex={/^\+?\d{10,15}$/}
         />
-        <Button onClick={register} text="SUBMIT" color="white" />
+        <Button onClick={register} text="Submit" color="white" />
       </form>
       <p className="w-full text-center">
-        already have an account?
+        Already have an account?
       </p>
-      <Link href="/" className="text-blue-500 w-full text-center text-lg -mt-2">
-        LOGIN
+      <Link href="/" className="text-blue-500 w-full text-center text-lg transition duration-300 ease-in-out transform hover:text-blue-700 hover:scale-105">
+        Login
       </Link>
     </div>
   </div>
