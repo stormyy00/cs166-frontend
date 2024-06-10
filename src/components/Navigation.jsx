@@ -1,9 +1,11 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import { ITEM } from '@/data/nav'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Context from './Context';
 
 const Navigation = () => {
+  const { user, setUser } = useContext(Context);
     const [expand, setExpand] = useState(false);
     const pathName = usePathname();
   return (
@@ -14,10 +16,10 @@ const Navigation = () => {
           onClick={() => setExpand(!expand)}
         >
           {/* <Image src={LOGO} className="w-10 h-10 mx-2" alt={`Logo`} /> */}
-          {/* <div className="text-white text-xl font-bold">{user.type}</div> */}
+          {/* <div className="text-black text-xl font-bold">{user.type}</div>
           <div className="text-white text-xl font-semibold">
             {pathName.split("/")[2]}
-          </div>
+          </div> */}
         </div>
       </div>
       <div
@@ -29,7 +31,7 @@ const Navigation = () => {
     <div className="hidden lg:flex flex-col justify-center items-center my-3">
         ICON
             {/* <Image src={LOGO} className="w-10 h-10 mx-2" alt={` Logo`} /> */}
-            {/* <div className="text-white text-xl font-bold">{user.type}</div> */}
+            <div className="text-black text-xl font-bold">{user.type}</div>
           </div>
           <div className="flex flex-col justify-start items-center mx-6">
             {ITEM.map((item, idx)=> (

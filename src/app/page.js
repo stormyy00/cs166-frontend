@@ -32,7 +32,7 @@ export default function Home() {
   // });
 
   return (
-    <div className="h-screen"><Login/></div>
+    <div className=""><Login/></div>
     // <div className="flex items-center justify-center w-full h-full ">
     //   <title className="text-tm-blue">MOCK</title>
     //   <Navigation />

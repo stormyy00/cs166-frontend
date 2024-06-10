@@ -58,7 +58,7 @@ const Login = () => {
     };
     
   return (
-    <div className="flex w-full h-full bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
+    <div className="flex w-screen h-full bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
     {/* <div className="w-fit flex flex-col items-center justify-center text-white">
       <Image src={logo} alt="logo" width={100} height={100} />
       <div>Elevating Shopping to Prime Satisfaction!</div>
