@@ -26,6 +26,13 @@ export const ITEM = [
         // icon: <BsPeopleFill className={iconStyle} />,
         type: ["manager"],
         },
+        {
+            name: "All Orders",
+            page: "all-order",
+            link: "/table/all-order",
+            // icon: <BsPeopleFill className={iconStyle} />,
+            type: ["manager"],
+            },
     {
         name:"Update Catalog",
         page:"update-product",
