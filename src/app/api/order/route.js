@@ -5,15 +5,45 @@ import { NextResponse } from "next/server";
 const pool = new Pool(config);
 
 export async function POST(req) {
-  const { name, password, role, favgames, num, rentaldue } = await req.json();
-  console.log(password + "from apu")
-  const query = `INSERT INTO Users (login, password, role, favgames, phonenum, numoverduegames) VALUES ('${name}','${password}', 'customer' ,'${favgames}',${num}, ${rentaldue})`;
+  const { gameid, noofgames } = await req.json();
+  let rentalOrderID = "rental-1111";
+  let trackingID = "TRACK-02014";
+
+  const client = await pool.connect();
   try {
-    const client = await pool.connect();
-    const response = await client.query(query);
-    client.release();  
-    return NextResponse.json({ message: response }, { status: 200 });
+    await client.query('BEGIN');
+
+    const priceResult = await client.query('SELECT price FROM catalog WHERE gameid = $1', [gameid]);
+    if (priceResult.rows.length === 0) {
+      throw new Error('Game not found');
+    }
+    const price = parseFloat(priceResult.rows[0].price);
+    const totalPrice = price * noofgames;
+    
+
+    await client.query(`
+      INSERT INTO rentalorder (rentalorderid, login, noofgames, totalprice, ordertimestamp, duedate) 
+      VALUES ($1, 'Howard', $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP + interval '7 days')
+    `, [rentalOrderID, noofgames, totalPrice]);
+
+
+    await client.query(`
+      INSERT INTO trackinginfo (trackingid, rentalorderid, status, currentlocation, couriername, lastupdatedate)  
+      VALUES ($1, $2, 'Processing', 'Seattle, WA', 'UPS', CURRENT_TIMESTAMP)
+    `, [trackingID, rentalOrderID]);
+
+    await client.query(`
+      INSERT INTO gamesinorder (rentalorderid, gameid, unitsordered) 
+      VALUES ($1, $2, $3)
+    `, [rentalOrderID, gameid, noofgames]);
+
+
+    await client.query('COMMIT');
+    return NextResponse.json({ message: '✅Order placed successfully' }, { status: 200 });
   } catch (err) {
+    await client.query('ROLLBACK');
     return NextResponse.json({ message: err.message }, { status: 500 });
+  } finally {
+    client.release();
   }
 }

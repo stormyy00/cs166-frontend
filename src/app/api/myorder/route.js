@@ -8,7 +8,7 @@ export async function POST(req) {
   let client;
 
   try {
-    // const { userid } = await req.json();
+    const { name } = await req.json();
     const userid  = "katiepotts4";  // Parse the JSON request body
 
     client = await pool.connect();
@@ -21,7 +21,7 @@ export async function POST(req) {
       ORDER BY r.ordertimestamp DESC
       LIMIT 5;
     `;
-    const response = await client.query(query, [userid]);
+    const response = await client.query(query, [name]);
     return NextResponse.json({ message: response.rows }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 500 });
