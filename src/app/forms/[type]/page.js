@@ -9,6 +9,7 @@ import { INPUTS } from "@/data/inputs";
 import Link from "next/link";
 
 import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 
 const Page = ({ params }) => {
@@ -32,7 +33,7 @@ const Page = ({ params }) => {
         .then((response) => response.json())
         .then((res) => {
           console.log(res.message);
-          alert(res.message);
+          toast(res.message);
         })
         .catch((err) => {
           console.log(err.message);

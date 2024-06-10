@@ -11,28 +11,28 @@ const Profile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Fetch user profile from the backend
-    const fetchProfile = async () => {
-      try {
-        const response = await fetch("/api/profile", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name: user?.name, pwd: user?.password }),
-        });
-        const data = await response.json();
-        setUser(data.profile);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching profile:", error);
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   // Fetch user profile from the backend
+  //   const fetchProfile = async () => {
+  //     try {
+  //       const response = await fetch("/api/profile", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ name: user?.name, pwd: user?.password }),
+  //       });
+  //       const data = await response.json();
+  //       setUser(data.profile);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching profile:", error);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchProfile();
-  }, [setUser]);
+  //   fetchProfile();
+  // }, [setUser]);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -60,9 +60,9 @@ const Profile = () => {
     }
   };
 
-  if (loading) {
-    return <div><Loading/></div>;
-  }
+  // if (loading) {
+  //   return <div><Loading/></div>;
+  // }
 
   return (
     <div className="flex w-full h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
@@ -73,7 +73,7 @@ const Profile = () => {
           <div className="text-lg text-gray-700">
             <p>Name: {user.name}</p>
             <p>Favorite Games: {user.favgames}</p>
-            <p>Number of Overdue Games: {user.numOverdueGames}</p>
+            <p>Number of Overdue Games: {user.rentalDue}</p>
             <p>Phone Number: {user.num}</p>
           </div>
         )}

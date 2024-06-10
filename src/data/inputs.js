@@ -1,15 +1,13 @@
 export const INPUTS = {
-  catalog:["gamedid"],
+  catalog:[],
   myorder: [],
   order: ["gameid", "noofgames"],
   "update-catalog": ["gameid", "gamename", "genre", "price", "comments"],
   "all-users": [],
   "update-user": [
-    "updatelogin",
-    "updatepwd",
-    "updateRole",
-    "updateNUm",
-    "updateGamesDUe",
+    "name",
+    "newRole",
+    "newNumOverdueGames",
   ],
   "update-tracking":[
     "trackingid",

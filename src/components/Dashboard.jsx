@@ -5,6 +5,7 @@ import Table from './Table';
 import Navigation from './Navigation';
 import Input from "./Input.jsx";
 import Button from "./Button.jsx";
+import toast from 'react-hot-toast';
 import { INPUTS } from "@/data/inputs.js";
 import {
     getCoreRowModel,
@@ -36,12 +37,8 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
       })
         .then((response) => response.json())
         .then((res) => {
-          if (res.message) {
-            console.log(res.message);
-            setData(res.message);
-          } else {
-            setData([]);
-          }
+          setData(res.message);
+          toast("✅ Fetch successful");
         })
         .catch((err) => {
           console.log(err.message);

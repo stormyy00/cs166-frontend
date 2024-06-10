@@ -9,11 +9,11 @@ export async function POST(req) {
 //   const { type } = await req.json();
 //   if (type !== "admin")
 //     return NextResponse.json({ message: "permission denied" }, { status: 403 });
-  try {
+try {
     const client = await pool.connect();
-    const response = await client.query(`SELECT* from users`);
-    console.log(users);
+    const response = await client.query("SELECT * FROM users;");
     const users = response.rows;
+    client.release(); 
     return NextResponse.json({ message: users }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 500 });

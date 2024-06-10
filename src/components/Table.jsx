@@ -30,7 +30,7 @@ const Table = ({
             {getHeaderGroups().map(({ headers, id }) => (
               <div key={id} className="flex items-center px-3 py-2 w-full">
                 {headers.map(({ id, column, getContext }) => (
-                  <div key={id} className={`flex items-center w-1/6`}>
+                  <div key={id} className={`flex items-center justify-between w-full`}>
                     {flexRender(column.columnDef.header, getContext())}
                     {column.getCanSort() && (
                       <FaArrowRightArrowLeft
