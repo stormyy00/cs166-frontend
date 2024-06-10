@@ -43,9 +43,8 @@ const Login = () => {
         });
         
         if (res.message) {
-          setUser((prevUser) => ({
-            ...prevUser,
-            // ...res.message, // This should include the updated type/role
+          setUser(({ ...user,
+             // This should include the updated type/role
             type: "customer"
           }));
           router.push("/table/catalog");

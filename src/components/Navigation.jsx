@@ -3,7 +3,7 @@ import { ITEM } from '@/data/nav'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Context from './Context';
-
+import { CgProfile } from "react-icons/cg";
 const Navigation = () => {
   const { user, setUser } = useContext(Context);
     const [expand, setExpand] = useState(false);
@@ -57,8 +57,7 @@ const Navigation = () => {
             ))}
         </div>
         <Link href={"profile"}className='flex  h-fit'>
-
-            Profile
+           <CgProfile className='text-6xl text-tm-blue'/>
         </Link>
         {/* <Link href="/">LOG OUT</Link> */}
     </div>
