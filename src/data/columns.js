@@ -1,7 +1,7 @@
 import Checkbox from "@/components/Checkbox";
 const generateSelect = () => ({
   id: "select",
-  width: "w-1/12",
+  width: "w-18",
   header: ({ table }) => (
     <Checkbox
       toggle={table.getIsAllRowsSelected()}
@@ -124,23 +124,23 @@ export const COLUMNS = {
     {
       accessorKey: "rentalorderid",
       header: "rentalorderid",
-      width: " w-1/6",
+      width: " w-1/4",
       enableColumnFilter: true,
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "login",
-      header: "login",
-      width: " w-1/6",
+      accessorKey: "trackingid",
+      header: "trackingid",
+      width: " w-1/4",
       enableColumnFilter: true,
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "nofgames",
+      accessorKey: "noofgames",
       header: "noofgames",
-      width: "w-3/12",
+      width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
@@ -220,7 +220,7 @@ export const COLUMNS = {
     {
       accessorKey: "rentalorderid",
       header: "rentalorderid",
-      width: " w-1/6",
+      width: " w-3/6",
       enableColumnFilter: true,
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,
@@ -235,7 +235,7 @@ export const COLUMNS = {
     },
     {
       accessorKey: "currentlocation",
-      header: "currentlocatione",
+      header: "currentlocation",
       width: "w-3/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },

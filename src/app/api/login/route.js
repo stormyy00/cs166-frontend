@@ -13,7 +13,7 @@ export async function POST(req, res) {
 
     const client = await pool.connect();
     const response = await client.query(query, values);
-    client.release();
+
 
     if (response.rows.length > 0) {
       return NextResponse.json({ message: 'Login successful', user: response.rows[0] }, { status: 200 });

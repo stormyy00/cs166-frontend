@@ -6,12 +6,13 @@ const pool = new Pool(config);
 
 export async function POST(req) {
     try {
-        const { role, gameid, gamename, genre, price, description } = await req.json();
+        const { gameid, gamename, genre, price, description } = await req.json();
+        const { type } = await req.json();
     
         // Example: Check if user is authorized as a manager
-        // if (role !== "manager") {
-        //   return NextResponse.error(403, "Permission denied");
-        // }
+        if (type !== "manager") {
+          return NextResponse.json({ message: "permission denied" }, { status: 403 });
+        }
     
         const client = await pool.connect();
         const query = {

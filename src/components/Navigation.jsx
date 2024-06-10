@@ -35,6 +35,7 @@ const Navigation = () => {
           </div>
           <div className="flex flex-col justify-start items-center mx-6">
             {ITEM.map((item, idx)=> (
+              item.type.includes(user.type) && (
                 <Link
                 key={idx}
                 href={item.link}
@@ -52,6 +53,7 @@ const Navigation = () => {
                 <p className="text-xl m-0">{item.name}</p>
                 </div>
             </Link>
+              )
             ))}
         </div>
         <Link href={"profile"}className='flex  h-fit'>

@@ -9,9 +9,6 @@ import toast from "react-hot-toast";
 
 const Login = () => {
     const {user, setUser} = useContext(Context);
-    const [isMounted, setIsMounted] = useState(false);
-
-
     const router = useRouter();
     const login = async (e) => {
       e.preventDefault();
@@ -46,8 +43,12 @@ const Login = () => {
         });
         
         if (res.message) {
-          setUser(res.message);
-          router.push("/forms/order");
+          setUser((prevUser) => ({
+            ...prevUser,
+            // ...res.message, // This should include the updated type/role
+            type: "customer"
+          }));
+          router.push("/table/catalog");
         } else {
           toast("❌ Invalid username or password");
         }

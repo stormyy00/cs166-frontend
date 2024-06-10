@@ -1,6 +1,6 @@
 export const ITEM = [
     {
-        name:"catalog",
+        name:"Catalog",
         page:"catalog",
         link:"/table/catalog",
         type: ["customer", "employee", "manager"],

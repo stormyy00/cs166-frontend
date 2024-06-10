@@ -25,8 +25,7 @@ export default function RootLayout({ children, session }) {
   console.log('Current user:', user);
   return (
     <html lang="en" className="h-full w-full">
-      <body className=" bg-gray-300 flex flex-row h-full w-full`}`">
-
+      <body className=" bg-gray-300 flex flex-row h-full w-full">
           <Context.Provider value={{user, setUser}}>
           <Toaster />
             {children}

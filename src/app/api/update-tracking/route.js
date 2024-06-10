@@ -6,13 +6,13 @@ const pool = new Pool(config);
 
 export async function POST(req) {
         try {
-            const { role, trackingid, status, currentlocation, couriername, additionalComments } = await req.json();
+            const { trackingid, status, currentlocation, couriername, additionalComments } = await req.json();
     
+            const { type } = await req.json();
 
-
-            // if (role !== "employee" && role !== "manager") {
-            //     return NextResponse.error(403, "Permission denied");
-            // }
+            if (type !== "employee" && type !== "manager") {
+                return NextResponse.json({ message: "permission denied" }, { status: 403 });
+            }
     
             const client = await pool.connect();
     

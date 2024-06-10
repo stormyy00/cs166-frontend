@@ -36,14 +36,22 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
         method: "POST",
         body: JSON.stringify(user),
       })
-        .then((response) => response.json())
-        .then((res) => {
+      .then((response) => {
+        // Check if response is successful
+        if (!response.ok) {
+          toast(`❌ ${response.status} unauthorized access`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((res) => {
           setData(res.message);
           toast("✅ Fetch successful");
         })
         .catch((err) => {
           console.log(err.message);
           setData([]);
+          toast.error("❌ Fetch failed");
         });
   };
   useEffect(() => {
