@@ -24,8 +24,8 @@ export default function RootLayout({ children, session }) {
 // className={inter.className}
   console.log('Current user:', user);
   return (
-    <html lang="en">
-      <body className=" bg-gray-300">
+    <html lang="en" className="h-full w-full">
+      <body className=" bg-gray-300 flex`">
 
           <Context.Provider value={{user, setUser}}>
           <Toaster />

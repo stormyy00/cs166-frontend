@@ -35,7 +35,7 @@ export const ITEM = [
     {
         name:"Tracking Info",
         page:"track-info",
-        link:"/forms/viewTR",
+        link:"/table/track-info",
         type:["customer", "manager", "admin"]
     },
     {
