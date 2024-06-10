@@ -65,7 +65,7 @@ const Profile = () => {
   // }
 
   return (
-    <div className="flex w-full h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
+    <div className="flex w-screen h-full bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
        <div className="rounded-lg p-12 w-1/3 bg-white/60 flex flex-col justify-center items-start h-fit gap-3">
 
           <div className="text-4xl font-light">Account Profile</div>

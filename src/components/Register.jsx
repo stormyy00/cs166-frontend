@@ -35,15 +35,15 @@ const Register = () => {
       })
       .then((response) => response.json())
       .then((res) => {
-          setUser({ ...user, role: "customer" });
-          route.push("/");
+          setUser({ ...user, type: "customer" });
+          route.push("/table/catalog");
       })
       .catch((err) => {
           alert("Error: " + err.message);
       });
   };
   return (
-    <div className="flex w-full h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
+    <div className="flex w-screen h-screen bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
     {/* <div className="w-fit flex flex-col items-center justify-center text-white">
       <Image src={logo} alt="logo" width={100} height={100} />
       <div>Elevating Shopping to Prime Satisfaction!</div>
