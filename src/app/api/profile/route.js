@@ -6,11 +6,11 @@ const pool = new Pool(config);
 
 // Fetch user profile
 export async function POST(req) {
-  const { name, pwd } = await req.json();
+  const { name, password } = await req.json();
   const query = `
     SELECT name, password, role, favgames, phoneNum, numoverduegames
     FROM USERS 
-    WHERE login = night1 AND password = suck
+    WHERE login = '${name}' AND password = '${password}'
   `;
   try {
     const client = await pool.connect();
