@@ -6,8 +6,8 @@ const pool = new Pool(config);
 
 export async function POST(req) {
   const { gameid, noofgames } = await req.json();
-  let rentalOrderID = "rental-1111";
-  let trackingID = "TRACK-02014";
+  let rentalOrderID = `rental-${Math.random().toString().slice(2, 2 + 4)}`;
+  let trackingID = `TRACK-${Math.random().toString().slice(2, 2 + 5)}`;
 
   const client = await pool.connect();
   try {
