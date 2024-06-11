@@ -14,9 +14,10 @@ export async function POST(req) {
     // WHERE login = $1
     const client = await pool.connect();
     const response = await client.query(query);
+    const users = response.rows[0];
     client.release();
     if (response.rows) {
-      return NextResponse.json({ profile: response.rows }, { status: 200 });
+      return NextResponse.json({ profile: users }, { status: 200 });
     } else {
       return NextResponse.json({ message: "User not found or incorrect password" }, { status: 404 });
     }

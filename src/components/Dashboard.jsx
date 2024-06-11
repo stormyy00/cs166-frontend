@@ -45,6 +45,7 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
         return response.json();
       })
       .then((res) => {
+        // console.log(res.message);
           setData(res.message);
           toast("✅ Fetch successful");
         })
