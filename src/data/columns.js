@@ -360,7 +360,7 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
   ],
-  profile: [
+  "view-profile": [
     generateSelect(),
     {
       accessorKey: "login",

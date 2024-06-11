@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { ITEM } from '@/data/nav';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Context from './Context';
 import { CgProfile } from 'react-icons/cg';
 import logo from '../pictures/logo.png';
@@ -11,6 +11,7 @@ const Navigation = () => {
   const { user, setUser } = useContext(Context);
   const [expand, setExpand] = useState(false);
   const pathName = usePathname();
+  const router = useRouter();
 
   return (
     <>
@@ -65,7 +66,12 @@ const Navigation = () => {
           </div>
 
           {/* Profile Icon */}
-          <Link href={'/table/profile'} className="flex  h-fit">
+          <Link href="/table/view-profile"
+          onClick={(e) => {
+        e.preventDefault();
+        router.push('/table/view-profile');
+      }}
+      className="flex h-fit">
             <CgProfile className="text-5xl text-blue-700" />
           </Link>
           {/* <Link href="/">LOG OUT</Link> */}

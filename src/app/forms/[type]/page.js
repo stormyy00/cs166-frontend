@@ -20,7 +20,7 @@ const Page = ({ params }) => {
     if (!user) return;
     INPUTS[params.type].map((input) => {
       if (!data[input]) {
-        alert("Please fill all the fields");
+        toast("⚠️ Please fill all the fields");
         ready = false;
         return;
       }

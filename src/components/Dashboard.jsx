@@ -25,7 +25,7 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
   const handleReload = async () => {
     let ready = true;
     INPUTS[page].map((input) => {
-      if (!user[input]) {
+      if (!user[input] && page != "view-profile") {
         toast("Please fill all the fields");
         ready = false;
         return;
