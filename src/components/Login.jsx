@@ -95,7 +95,7 @@ const Login = () => {
         don{"'"}t have an account?
       </span>
       <Link href="/register" className="text-blue-500 w-full text-center text-lg -mt-2">
-        REGISTSER
+        REGISTER
       </Link>
     </div>
   </div>
