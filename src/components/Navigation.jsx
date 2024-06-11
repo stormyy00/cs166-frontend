@@ -38,7 +38,7 @@ const Navigation = () => {
         <div className={`flex w-fit h-screen flex-col justify-between items-center bg-white ${expand ? 'shadow-right' : ''}`}>
           {/* Logo and User Info */}
           <div className="hidden lg:flex flex-col justify-center items-center my-3">
-            <Image src={logo} className="w-10 h-10 mx-2" alt={` Logo`} />
+            <Image src={logo} className="w-16 h-16 mx-2" alt={` Logo`} />
             <div className="text-black text-xl font-bold">{user.type}</div>
           </div>
 
@@ -50,10 +50,10 @@ const Navigation = () => {
                   <Link key={idx} href={item.link} className="no-underline p-0 w-full">
                     <div
                       onClick={() => setExpand(false)}
-                      className={`w-full flex [&>*]:text-tm-purple/90 font-semibold text-base items-center justify-start py-1 pl-[10%] ${
+                      className={`w-full flex  [&>*]:text-blue-600 font-semibold text-base items-center justify-start py-1 pl-[10%] ${
                         pathName.endsWith(item.link)
-                          ? 'bg-gray-300 rounded-lg'
-                          : '[&>*]:hover:text-tm-purple/60'
+                          ? 'bg-gray-300/60 rounded-lg'
+                          : '[&>*]:hover:text-blue-900'
                       }`}
                     >
                       {/* {tab.icon} */}
@@ -65,8 +65,8 @@ const Navigation = () => {
           </div>
 
           {/* Profile Icon */}
-          <Link href={'profile'} className="flex  h-fit">
-            <CgProfile className="text-5xl text-tm-blue" />
+          <Link href={'/table/profile'} className="flex  h-fit">
+            <CgProfile className="text-5xl text-blue-700" />
           </Link>
           {/* <Link href="/">LOG OUT</Link> */}
         </div>

@@ -8,38 +8,38 @@ const pool = new Pool(config);
 export async function POST(req) {
   const { name, password } = await req.json();
   const query = `
-    SELECT name, password, role, favgames, phoneNum, numoverduegames
-    FROM USERS 
-    WHERE login = '${name}' AND password = '${password}'
-  `;
-  try {
+    SELECT *
+    FROM users`;
+    try {
+    // WHERE login = $1
     const client = await pool.connect();
     const response = await client.query(query);
     client.release();
-    if (response.rows.length > 0) {
-      return NextResponse.json({ profile: response.rows[0] }, { status: 200 });
+    if (response.rows) {
+      return NextResponse.json({ profile: response.rows }, { status: 200 });
     } else {
       return NextResponse.json({ message: "User not found or incorrect password" }, { status: 404 });
     }
   } catch (err) {
+    console.error("Database query error:", err);
     return NextResponse.json({ message: err.message }, { status: 500 });
   }
 }
 
 // Update user profile
-export async function PUT(req) {
-  const { name, favgames, num, password } = await req.json();
-  const query = `
-    UPDATE USERS 
-    SET favgames = $1, num = $2, password = $3
-    WHERE name = $4
-  `;
-  try {
-    const client = await pool.connect();
-    await client.query(query, [favgames, num, password, name]);
-    client.release();
-    return NextResponse.json({ message: "Profile updated successfully" }, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ message: err.message }, { status: 500 });
-  }
-}
+// export async function POST(req) {
+//   const { name, password, favgames, num } = await req.json();
+//   const query = `
+//     UPDATE USERS 
+//     SET favgames = $1, num = $2, password = $3
+//     WHERE login = $4
+//   `;
+//   try {
+//     const client = await pool.connect();
+//     await client.query(query, [favgames, num, password, name]);
+//     client.release();
+//     return NextResponse.json({ message: "Profile updated successfully" }, { status: 200 });
+//   } catch (err) {
+//     return NextResponse.json({ message: err.message }, { status: 500 });
+//   }
+// }

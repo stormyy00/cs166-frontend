@@ -47,10 +47,10 @@ const Page = ({ params }) => {
       <div className="w-full flex justify-center items-start bg-hackathon-page h-screen py-12 lg:py-0 z-0 px-4">
         <div className="w-full">
           <div className="flex justify-between items-center my-2 text-4xl font-bold  w-full">
-            <p className=" bg-gradient-to-r from-tm-purple to-blue-400 bg-clip-text text-transparent">
+            <p className="  bg-gradient-to-r from-blue-400 to-blue-600  bg-clip-text text-transparent">
             {params.type}
             </p>
-            <Link className="text-2xl text-white bg-gradient-to-r from-tm-purple to-blue-400 p-2 rounded-xl hover:opacity-90 duration-300"href={"/"}>logout</Link>
+            <Link className="text-xl text-white bg-gradient-to-r from-blue-400/90 to-blue-500 p-2 rounded-xl hover:opacity-90 duration-300"href={"/"}>Logout</Link>
           </div>
           {INPUTS[params.type].map((input, index) => (
             <Input

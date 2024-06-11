@@ -26,7 +26,7 @@ const Table = ({
     <>
       <div className="bg-white overflow-y-scroll flex flex-col justify-between rounded-lg drop-shadow-[20px_15px_35px_rgba(0,0,0,0.25)]">
         <div>
-          <div className="text-white bg-gradient-to-r from-tm-purple to-tm-blue rounded-t-lg flex justify-between">
+          <div className="text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-t-lg flex justify-between">
             {getHeaderGroups().map(({ headers, id }) => (
               <div key={id} className="flex items-center px-3 py-2 w-full">
                 {headers.map(({ id, column, getContext }) => (

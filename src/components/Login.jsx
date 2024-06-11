@@ -61,7 +61,7 @@ const Login = () => {
     <div className="flex w-screen h-full bg-gradient-to-br from-gray-300 to-blue-300 items-center justify-around">
       <div className="rounded-lg p-12 w-1/3 bg-white shadow-lg flex flex-col justify-center items-start h-fit gap-4">
         <div>
-          <div className="flex justify-center text-4xl font-light text-gray-800">Login</div>
+          <div className="flex justify-start text-4xl font-light text-gray-800">Login</div>
           <div className="text-lg text-gray-600">Jon and Lester Game Rentals</div>
         </div>
       <form onSubmit={login} className="w-full">

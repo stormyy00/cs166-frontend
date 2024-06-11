@@ -7,58 +7,62 @@ import Context from "./Context";
 import Loading from "./Loading";
 
 const Profile = () => {
-  const { user, setUser } = useContext(Context);
-  const [newPassword, setNewPassword] = useState("");
-  const [loading, setLoading] = useState(true);
+  // const { user, setUser } = useContext(Context);
+  // const [newPassword, setNewPassword] = useState("");
+  // const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Fetch user profile from the backend
-  //   const fetchProfile = async () => {
-  //     try {
-  //       const response = await fetch("/api/profile", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ name: user?.name, pwd: user?.password }),
-  //       });
-  //       const data = await response.json();
-  //       setUser(data.profile);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching profile:", error);
-  //       setLoading(false);
+
+    // // Fetch user profile from the backend
+    // const fetchProfile = async () => {
+    //   try {
+    //     const response = fetch("/api/profile", {
+    //       method: "POST",
+    //       body: JSON.stringify({ name: user.name, password: user.password }),
+    //     });
+    //     if (!response.ok) {
+    //       toast(`❌ ${response.status} unauthorized access`);
+    //       throw new Error(`HTTP error! Status: ${response.status}`);
+    //     }
+    
+    //     const res = await response.json();
+    //     setData(res.message);
+    //     toast("✅ Fetch successful");
+    //   } catch (err) {
+    //     console.log(err.message);
+    //     setData([]);
+    //     toast.error("❌ Fetch failed");
+    //   }
+    // };
+
+    // fetchProfile();
+
+  
+
+  // const handleUpdate = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response = await fetch("/api/profile", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         name: user.name,
+  //         favgames: user.favgames,
+  //         phoneNum: user.num,
+  //         password: newPassword || user.password, // Only update if new password is provided
+  //       }),
+  //     });
+  //     const data = await response.json();
+  //     if (response.ok) {
+  //       console.log("Profile updated successfully:", data);
+  //     } else {
+  //       console.error("Error updating profile:", data);
   //     }
-  //   };
-
-  //   fetchProfile();
-  // }, [setUser]);
-
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch("/api/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: user.name,
-          favgames: user.favgames,
-          phoneNum: user.num,
-          password: newPassword || user.password, // Only update if new password is provided
-        }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        console.log("Profile updated successfully:", data);
-      } else {
-        console.error("Error updating profile:", data);
-      }
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    }
-  };
+  //   } catch (error) {
+  //     console.error("Error updating profile:", error);
+  //   }
+  // };
 
   // if (loading) {
   //   return <div><Loading/></div>;

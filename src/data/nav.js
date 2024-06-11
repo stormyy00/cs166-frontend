@@ -63,6 +63,12 @@ export const ITEM = [
         link:"/forms/update-user",
         type: [ "manager"],
     },
+    // {
+    //     name:"profile",
+    //     page:"profile",
+    //     link:"/table/profile",
+    //     type: ["customer", "employee", "manager"],
+    // },
 ]
 
 // {
