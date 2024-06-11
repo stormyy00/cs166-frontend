@@ -18,7 +18,9 @@ export const INPUTS = {
   ],
   "all-order": [],
   profile:["favegames", "phonenum"],
-  "track-info":[]
+  "track-info":[],
+  "all-order": [],
+  "all-tracking": [],
   };
 
   export const INPUT = {

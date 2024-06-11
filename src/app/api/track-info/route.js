@@ -6,8 +6,8 @@ const pool = new Pool(config);
 
 export async function POST(req) {
 
-  // const { name } = await req.json();
-  let name = "katiepotts4";
+  const { name } = await req.json();
+  // let name = "katiepotts4";
 
     try {
         const client = await pool.connect();

@@ -90,6 +90,7 @@ const Login = () => {
       <span className="w-full text-center text-gray-700">
         Don{"'"}t have an account?
       </span>
+
       <Link href="/register" className="text-blue-500 w-full text-center text-lg transition duration-300 ease-in-out transform hover:text-blue-700 hover:scale-105">
         Register
       </Link>
