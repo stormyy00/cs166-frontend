@@ -12,7 +12,7 @@ const Body = ({ getIsSelected, getVisibleCells, Dropdown, original }) => {
       <div
         className={`flex px-3 py-2 border-b-[1px] items-center ${
           getIsSelected()
-            ? "to-tm-blue/20 bg-gradient-to-r from-tm-purple/20"
+            ? "to-blue-700/20 bg-gradient-to-r from-blue-700/20"
             : "bg-white"
         }`}
       >
