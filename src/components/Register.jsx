@@ -5,6 +5,8 @@ import Link from "next/link";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import Context from "@/components/Context";
+import logo from '../pictures/logo.png';
+import Image from 'next/image';
 
 const Register = () => {
     const {user, setUser} = useContext(Context);
@@ -45,9 +47,11 @@ const Register = () => {
   return (
     <div className="flex w-screen h-full bg-gradient-to-br from-gray-300 to-blue-300 items-center justify-around">
       <div className="rounded-lg p-12 w-1/3 bg-white shadow-lg flex flex-col justify-center items-start h-fit gap-4">
-        <div>
-          <div className="flex justify-start text-4xl font-light text-gray-800">Register</div>
-          <div className="text-lg text-end text-gray-600">Jon and Lester Game Rentals</div>
+        <div className='flex justify-between w-full items-center'>
+            <div className="text-4xl font-light text-gray-800">Register
+            <div className="text-lg text-gray-600">Jon and Lester Game Rentals</div>
+          </div>
+          <Image src={logo} className="w-16 h-16 mx-2" alt={` Logo`} />
         </div>
       <form className="w-full">
       <Input
