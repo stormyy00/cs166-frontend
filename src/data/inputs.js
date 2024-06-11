@@ -20,6 +20,7 @@ export const INPUTS = {
   profile:["favegames", "phonenum"],
   "track-info":[],
   "all-order": [],
+  "all-tracking": [],
   };
 
   export const INPUT = {

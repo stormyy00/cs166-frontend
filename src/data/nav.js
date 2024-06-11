@@ -43,7 +43,13 @@ export const ITEM = [
         name:"Tracking Info",
         page:"track-info",
         link:"/table/track-info",
-        type:["customer", "manager", "admin"]
+        type: ["customer", "employee", "manager"],
+    },
+    {
+        name:"View Tracking",
+        page:"all-tracking",
+        link:"/table/all-tracking",
+        type: ["employee", "manager"],
     },
     {
         name:"Update Tracking",

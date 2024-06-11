@@ -246,6 +246,45 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
   ],
+  "all-tracking": [
+    generateSelect(),
+    {
+      accessorKey: "trackingid",
+      header: "trackingid",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "rentalorderid",
+      header: "rentalorderid",
+      width: " w-3/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "status",
+      header: "status",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "currentlocation",
+      header: "currentlocation",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "lastupdatedate",
+      header: "lastupdatedate",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
   "popular-items": [
     generateSelect(),
 
